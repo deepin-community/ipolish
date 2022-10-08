@@ -1,0 +1,72 @@
+From: Robert Luberda <robert@debian.org>
+Date: Sun, 23 Oct 2005 22:39:28 +0200
+Subject: UTF8 characters
+
+Add declarations of UTF-8 characters into polish.aff. This should make it
+possible to check Polish UTF-8 documents with a `ispell -T utf8' command.
+---
+ polish.aff | 46 ++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 36 insertions(+), 10 deletions(-)
+
+diff --git a/polish.aff b/polish.aff
+index 6a54d36..a4874e9 100644
+--- a/polish.aff
++++ b/polish.aff
+@@ -7,21 +7,47 @@ allaffixes on
+ nroffchars	().\\*
+ texchars	()\[]{}<\>\\$*.%
+ 
+-defstringtype  "nroff" "nroff" ".mm" ".ms" ".me" ".man" ".NeXT"
++defstringtype  "nroff" "nroff" ".mm" ".ms" ".me" ".man" ".NeXT" ".txt"
+ 
+ boundarychars "-"
+ boundarychars "'" 
+ boundarychars "."
+ wordchars [a-z] [A-Z]
+-wordchars ñ Ñ
+-wordchars æ Æ
+-wordchars ¼ ¬
+-wordchars ¿ ¯
+-wordchars ³ £
+-wordchars ¶ ¦
+-wordchars ± ¡
+-wordchars ó Ó
+-wordchars ê Ê
++stringchar ñ Ñ
++stringchar æ Æ
++stringchar ¼ ¬
++stringchar ¿ ¯
++stringchar ³ £
++stringchar ¶ ¦
++stringchar ± ¡
++stringchar ó Ó
++stringchar ê Ê
++
++
++#
++# UTF-8
++#
++altstringtype "utf8" "TeX" ".txt"
++
++
++altstringchar \xC4\x85 ±
++altstringchar \xC4\x84 ¡
++altstringchar \xC4\x87 æ
++altstringchar \xC4\x86 Æ
++altstringchar \xC4\x99 ê
++altstringchar \xC4\x98 Ê
++altstringchar \xC5\x82 ³
++altstringchar \xC5\x81 £
++altstringchar \xC5\x84 ñ
++altstringchar \xC5\x83 Ñ
++altstringchar \xC3\xB3 ó
++altstringchar \xC3\x93 Ó
++altstringchar \xC5\x9B ¶
++altstringchar \xC5\x9A ¦
++altstringchar \xC5\xBA ¼
++altstringchar \xC5\xB9 ¬
++altstringchar \xC5\xBC ¿
++altstringchar \xC5\xBB ¯
+ 
+ 
+ prefixes

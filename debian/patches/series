@@ -1,0 +1,7 @@
+00-Additional-PLD.patch
+10-Vulgar-spelling.patch
+12-Remove-illegal-words.patch
+13-UTF8-characters.patch
+14-Incorrectly-encoded-words.patch
+15-Loanword-chars.patch
+16-UTF-8-affix.patch

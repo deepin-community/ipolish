@@ -1,0 +1,35 @@
+Source: ipolish
+Maintainer: Robert Luberda <robert@debian.org>
+Section: text
+Priority: optional
+Build-Depends-Indep: dictionaries-common-dev (>= 1.23~),
+                     ispell (>= 3.4.02),
+                     locales,
+                     recode
+Build-Depends: debhelper-compat (= 13)
+Rules-Requires-Root: no
+Standards-Version: 4.5.1
+Homepage: https://sjp.pl/
+Vcs-Git: https://salsa.debian.org/debian/ipolish.git
+Vcs-Browser: https://salsa.debian.org/debian/ipolish/
+
+Package: ipolish
+Architecture: all
+Depends: ${ispell:Depends}, ${misc:Depends}, ${perl:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Provides: ispell-dictionary
+Suggests: wpolish
+Description: Polish dictionary for ispell
+ This is the Polish dictionary, to be used with the ispell program,
+ version 3.1.04 and following.  The dictionary contains roughly
+ 200,000 roots, which expand to about 2,500,000 words.
+
+Package: wpolish
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends}, ${wordlist:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Provides: wordlist
+Description: Polish dictionary words for /usr/share/dict
+ This package provides the file /usr/share/dict/polish containing a list
+ of Polish words.  This list can be used by spelling checkers, and by
+ programs such as look(1).

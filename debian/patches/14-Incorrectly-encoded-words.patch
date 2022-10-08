@@ -1,0 +1,226 @@
+From: Robert Luberda <robert@debian.org>
+Date: Sun, 9 Oct 2016 10:35:45 +0200
+Subject: Incorrectly encoded words
+
+Remove words containing '?' that exist probably because
+of using  UTF-8 characters that are out of range for ISO-8859-2.
+---
+ polish.all | 28 ----------------------------
+ 1 file changed, 28 deletions(-)
+
+diff --git a/polish.all b/polish.all
+index 3cb176c..f2be869 100644
+--- a/polish.all
++++ b/polish.all
+@@ -6096,7 +6096,6 @@ Cadillacu
+ Cadillakiem
+ Cadów/P
+ Caen
+-Caff?
+ Cafuso/NOTo
+ Cafusy
+ Café
+@@ -19192,7 +19191,6 @@ Kamyk/NOTos
+ Kamykowski/XYx
+ Kamysz/NOTos
+ Kamyszek/PSZwz
+-Kan?
+ Kana
+ Kanaan/Q
+ Kanabrodzki/XYx
+@@ -23350,7 +23348,6 @@ Lafargue
+ Lafayetcie
+ Lafayette
+ Laffitte
+-Lagard?re
+ Lagerfeld/NOTos
+ Lagerkvist/NOTos
+ Lagerlöf/NOTos
+@@ -24120,7 +24117,6 @@ Lhasa/M
+ Lhoce
+ Lhotse
+ Li
+-Li?ge
+ Liana/M
+ Liao
+ Liaoning/Q
+@@ -35635,7 +35631,6 @@ Quito
+ Qumran/Q
+ Quo
+ R
+-R?m?
+ RAF
+ RAFAKO
+ RAI
+@@ -35694,7 +35689,6 @@ RPP
+ RPU
+ RR
+ RRSO
+-RS:X
+ RSA
+ RSHA
+ RSI
+@@ -37834,7 +37828,6 @@ R
+ Ró¿yñsk/O
+ Ró¿yñski/XYx
+ S
+-S?vres
+ SA
+ SAA
+ SAAB
+@@ -42841,7 +42834,6 @@ S
+ Süczou
+ Süddeutsche
+ T
+-T?ne
+ TAB
+ TAI
+ TASS
+@@ -55871,7 +55863,6 @@ application
+ appoggiando
+ appoggiatura/MNn
+ appogiatura/MNn
+-apr?s
+ apraksja/AMNn
+ aprecjacja/AMNn
+ aprecjacyjny/XYbx
+@@ -65549,7 +65540,6 @@ bp
+ bp/NOTqs
+ bpstwo/UV
+ br
+-br?lée
+ brabancki/XYbxy
+ brabancki/c
+ brabancko¶æ/MN
+@@ -73984,7 +73974,6 @@ co
+ co¿e¶my
+ cpi
+ cps
+-cr?me
+ crabrones
+ crack/NOTs
+ cracker/NOTqs
+@@ -88298,7 +88287,6 @@ d
+ déco
+ décollage
+ décor
+-déj?
+ déluge
+ démarche
+ démodé
+@@ -92389,7 +92377,6 @@ exploitu
+ explorer/NOTs
+ expo
+ exposé
+-expr?s
+ expres/NQTs
+ expresowy/XYbx
+ express/NQTs
+@@ -93611,7 +93598,6 @@ femura
+ fen
+ fen/NOTs
+ fen/NQTs
+-fen?tre
+ fenacetyna/MNn
+ fenactil/DNQTs
+ fenakistiskop/NQTs
+@@ -97232,7 +97218,6 @@ f
+ f±fry/Wl
+ félibrige
+ g
+-g?ne
+ gabardyna/MNn
+ gabardynowy/XYbx
+ gabaryt/NQTs
+@@ -110972,8 +110957,6 @@ i
+ iñszczanin/COZtz
+ iñszczanka/MNm
+ j
+-j?mon
+-j?ruri
+ ja
+ jabco/UV
+ jabcok/NOTs
+@@ -111373,7 +111356,6 @@ jak
+ jak¿e¿by¶cie
+ jak¿e¿by¶my
+ jalapa/MNn
+-jalape?o
+ jale
+ jam
+ jama/M
+@@ -128975,7 +128957,6 @@ kw
+ kwêkañ
+ kwêkn±wszy
+ kwêkn±æ/BFIej
+-ky?gen
+ kyat/NOTs
+ kyfoza/MNn
+ kyliks/NOTs
+@@ -133547,7 +133528,6 @@ lumenogodzina/MNn
+ lumenometr/NQTs
+ lumenomierz/DNOTq
+ lumenosekunda/MNn
+-lumi?re
+ lumierowski/XYbxy
+ lumierowski/c
+ lumierowsko¶æ/MN
+@@ -237572,7 +237552,6 @@ phubber/NOTqs
+ phubbing/NQTs
+ phy
+ pi
+-pi?
+ pia
+ piacere
+ piacevole
+@@ -238352,7 +238331,6 @@ pieszycki/c
+ pieszycko¶æ/MN
+ pieszyczanin/COZtz
+ pieszyczanka/MNm
+-piet?
+ pieta/MNn
+ pieter/PSZz
+ pietoso
+@@ -255157,7 +255135,6 @@ ppo
+ ppu³k
+ ppww
+ pp³k/NOTqs
+-pr?t
+ praatom/NQTs
+ prababcia/ALNm
+ prababka/MNm
+@@ -271255,7 +271232,6 @@ raggowy/XYbxy
+ raglan/NQTs
+ raglanowy/XYbx
+ ragnarek/PSZz
+-rago?t
+ ragout
+ ragtime
+ ragtimie
+@@ -285154,10 +285130,8 @@ shih
+ shiitake
+ shimmy
+ shimpa
+-shind?
+ shingeki
+ shinkansen/NOTs
+-shint?
+ shinto
+ shintoista/MNTq
+ shintoistka/MNm
+@@ -285227,7 +285201,6 @@ shuma/MNn
+ shuriken/NOTs
+ shuttle
+ si
+-si?cle
+ siad
+ siad/NQTs
+ siadaj±c
+@@ -315757,7 +315730,6 @@ wagowy/XYz
+ wagramski/XYbx
+ wagramski/c
+ wags
+-wagy?
+ wagyu
+ wah
+ wahabicki/XYbxy

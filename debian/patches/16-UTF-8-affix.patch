@@ -1,0 +1,151 @@
+From: Robert Luberda <robert@debian.org>
+Date: Fri, 8 Jan 2021 00:45:49 +0100
+Subject: Switch aff file to UTF-8 by default
+
+Make "utf8" to be defstringtypedef, and add "latin2" as
+altstringtype. This functionality requires ispell >= 3.4.01.
+
+The file was converted back to ISO-8859-2 to make the
+patch smaller.
+---
+ polish.aff | 111 +++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 57 insertions(+), 54 deletions(-)
+
+diff --git a/polish.aff b/polish.aff
+index 6bb8dbc..a8cb275 100644
+--- a/polish.aff
++++ b/polish.aff
+@@ -1,16 +1,20 @@
+ 
+ # SJP.PL
+ 
++# Note: this file requires ispell 3.4.01 or later.
++
+ compoundwords on
+ allaffixes on
+ 
+ nroffchars	().\\*
+ texchars	()\[]{}<\>\\$*.%
+ 
+-defstringtype  "nroff" "nroff" ".mm" ".ms" ".me" ".man" ".NeXT" ".txt"
++defstringtype  "utf8" "nroff" ".mm" ".ms" ".me" ".man" ".NeXT" ".txt"
++
++options raw_display squeeze_strings
+ 
+ boundarychars "-"
+-boundarychars "'" 
++boundarychars "'"
+ boundarychars "."
+ wordchars [a-z] [A-Z]
+ stringchar ñ Ñ
+@@ -40,59 +44,58 @@ stringchar 
+ stringchar ü Ü # müsli
+ 
+ #
+-# UTF-8
++# ISO-8859-2
+ #
+-altstringtype "utf8" "TeX" ".txt"
+-
+-
+-altstringchar \xC4\x85 ±
+-altstringchar \xC4\x84 ¡
+-altstringchar \xC4\x87 æ
+-altstringchar \xC4\x86 Æ
+-altstringchar \xC4\x99 ê
+-altstringchar \xC4\x98 Ê
+-altstringchar \xC5\x82 ³
+-altstringchar \xC5\x81 £
+-altstringchar \xC5\x84 ñ
+-altstringchar \xC5\x83 Ñ
+-altstringchar \xC3\xB3 ó
+-altstringchar \xC3\x93 Ó
+-altstringchar \xC5\x9B ¶
+-altstringchar \xC5\x9A ¦
+-altstringchar \xC5\xBA ¼
+-altstringchar \xC5\xB9 ¬
+-altstringchar \xC5\xBC ¿
+-altstringchar \xC5\xBB ¯
+-
+-# zapo¿yczone
+-altstringchar \xC5\xA1 ¹ # ©koda
+-altstringchar \xC5\xA0 ©
+-altstringchar \xC5\x9F º # Ceauºescu
+-altstringchar \xC5\x9E ª
+-altstringchar \xC4\x8D è # æevapèiæi
+-altstringchar \xC4\x8C È
+-altstringchar \xC3\xA1 á # Sárospatak
+-altstringchar \xC3\x81 Á
+-altstringchar \xC3\xA2 â # mâché
+-altstringchar \xC3\x82 Â
+-altstringchar \xC3\xA4 ä # Kärcher
+-altstringchar \xC3\x84 Ä
+-altstringchar \xC3\xA7 ç # Curaçao
+-altstringchar \xC3\x87 Ç
+-altstringchar \xC3\xA9 é # écru lub exposé
+-altstringchar \xC3\x89 É
+-altstringchar \xC3\xAB ë # citroën
+-altstringchar \xC3\x8B Ë
+-altstringchar \xC3\xAD í # Reykjavík
+-altstringchar \xC3\x8D Í
+-altstringchar \xC3\xB4 ô # drôlerie
+-altstringchar \xC3\x94 Ô
+-altstringchar \xC3\xB6 ö # malström
+-altstringchar \xC3\x96 Ö
+-altstringchar \xC3\xBA ú # kahlúa
+-altstringchar \xC3\x9A Ú
+-altstringchar \xC3\xBC ü # müsli
+-altstringchar \xC3\x9C Ü
++altstringtype "latin2" "TeX" ".txt"
++
++altstringchar \xB1 ±
++altstringchar \xA1 ¡
++altstringchar \xE6 æ
++altstringchar \xC6 Æ
++altstringchar \xEA ê
++altstringchar \xCA Ê
++altstringchar \xB3 ³
++altstringchar \xA3 £
++altstringchar \xF1 ñ
++altstringchar \xD1 Ñ
++altstringchar \xF3 ó
++altstringchar \xD3 Ó
++altstringchar \xB6 ¶
++altstringchar \xA6 ¦
++altstringchar \xBC ¼
++altstringchar \xAC ¬
++altstringchar \xBF ¿
++altstringchar \xAF ¯
++
++# u¿ywane w s³owach zapo¿yczonych
++altstringchar \xB9 ¹  # ©koda
++altstringchar \xA9 ©
++altstringchar \xBA º  # Ceauºescu
++altstringchar \xAA ª
++altstringchar \xE8 è  # æevapèiæi
++altstringchar \xC8 È
++altstringchar \xE1 á  # Sárospatak
++altstringchar \xC1 Á
++altstringchar \xE2 â  # mâché
++altstringchar \xC2 Â
++altstringchar \xE4 ä  # Kärcher
++altstringchar \xC4 Ä
++altstringchar \xE7 ç  # Curaçao
++altstringchar \xC7 Ç
++altstringchar \xE9 é  # écru lub exposé
++altstringchar \xC9 É
++altstringchar \xEB ë  # citroën
++altstringchar \xCB Ë
++altstringchar \xED í  # Reykjavík
++altstringchar \xCD Í
++altstringchar \xF4 ô  # drôlerie
++altstringchar \xD4 Ô
++altstringchar \xF6 ö  # malström
++altstringchar \xD6 Ö
++altstringchar \xFA ú  # kahlúa
++altstringchar \xDA Ú
++altstringchar \xFC ü  # müsli
++altstringchar \xDC Ü
+ 
+ prefixes
+ 

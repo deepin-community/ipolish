@@ -1,0 +1,11 @@
+Language: polski (Polish)
+Hash-Name: polish
+Emacsen-Name: polish
+Casechars: [A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]
+Not-Casechars: [^A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]
+Otherchars:
+Many-Otherchars:
+Additionalchars: ĄĆĘŁŃÓŚŹŻąćęłńóśźż
+Ispell-Args: -d polish
+Extended-Character-Mode:
+Coding-System: utf-8

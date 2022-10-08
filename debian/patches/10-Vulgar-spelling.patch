@@ -1,0 +1,21 @@
+From: Robert Luberda <robert@debian.org>
+Date: Thu, 29 Jan 2004 20:30:33 +0100
+Subject: Vulgar spelling
+
+Remove an incorrectly spelled vulgar word.
+---
+ polish.all | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/polish.all b/polish.all
+index 23d0442..f581b0a 100644
+--- a/polish.all
++++ b/polish.all
+@@ -107002,7 +107002,6 @@ hugonocki/c
+ hugonocko¶æ/MN
+ hugonot/NOTqs
+ hugonotka/MNm
+-huj/NOTs
+ huk
+ huk/NQTs
+ hukaj±c

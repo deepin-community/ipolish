@@ -1,0 +1,121 @@
+From: Robert Luberda <robert@debian.org>
+Date: Sun, 15 Jan 2006 13:33:42 +0100
+Subject: Remove illegal words
+
+Remove words containing illegal characters.
+---
+ polish.all | 19 -------------------
+ 1 file changed, 19 deletions(-)
+
+diff --git a/polish.all b/polish.all
+index f581b0a..3cb176c 100644
+--- a/polish.all
++++ b/polish.all
+@@ -1,11 +1,4 @@
+-
+-19
+-3D
+-500
+-?
+ A
+-A4
+-A6W
+ AA
+ AAN
+ AAP
+@@ -2281,7 +2274,6 @@ A
+ A¶ka/MN
+ Añ
+ B
+-B16
+ BA
+ BAAS
+ BAFT
+@@ -6051,7 +6043,6 @@ CPN
+ CPT
+ CPU
+ CR
+-CR7
+ CRM
+ CRS
+ CRT
+@@ -17333,7 +17324,6 @@ JKWysoko
+ JKWysoko¶ci±
+ JM
+ JOW
+-JP2
+ JPEG
+ JPG
+ JPL
+@@ -18772,7 +18762,6 @@ J
+ Jó¼wik/NOTos
+ Jünnan/Q
+ K
+-K2
+ KAI
+ KARAN
+ KBN
+@@ -25373,7 +25362,6 @@ MOPS
+ MOS
+ MOSiR
+ MP
+-MP3
+ MPEC
+ MPEG
+ MPK
+@@ -31788,7 +31776,6 @@ O
+ O¿ogowski/XYx
+ O¿umiech/Q
+ P
+-P2P
+ PA
+ PAA
+ PAGART
+@@ -31897,7 +31884,6 @@ PNMSP
+ PO
+ POM
+ POP
+-POP3
+ POS
+ POSTiW
+ POW
+@@ -35683,7 +35669,6 @@ RISC
+ RJN
+ RJP
+ RKS
+-RL9
+ RLN
+ RM
+ RMC
+@@ -42886,7 +42871,6 @@ TKP
+ TKR
+ TKS
+ TL
+-TL;DR
+ TLDR
+ TLK
+ TLW
+@@ -49837,7 +49821,6 @@ Z
+ Zêbowice/Wf
+ Zêtar/NOTos
+ a
+-a6w
+ aa
+ aaa
+ aalborski/XYbx
+@@ -143661,7 +143644,6 @@ mo
+ moñkowski/c
+ moñkowsko¶æ/MN
+ mp
+-mp3
+ mrau
+ mrn
+ mrocki/XYbx
+@@ -304464,7 +304446,6 @@ tkn
+ tkn±æ/BEFIej
+ tkwi±c
+ tkwiæ/BHIdiv
+-tl;dr
+ tldr
+ tle
+ tlej±c

@@ -1,0 +1,80 @@
+#!/usr/bin/make -f
+
+idict-package    := ipolish
+words-package    := wpolish
+
+export   LC_ALL=C
+unexport LANGUAGE
+
+SOURCE_DIR      := $(CURDIR)
+TMP_BUILD_DIR   := debian/BUILDDIR
+# Locales
+SORT_C          := LC_ALL=C sort
+LOCALE_NAME     := pl_PL
+LOCALE_CHARSET  := UTF-8
+ifeq (,$(wildcard /usr/share/i18n/charmaps))    # `locale-all' is installed
+LOCALE_DIR      :=
+SORT_PL         := env -u LOCPATH LC_ALL="$(LOCALE_NAME).$(LOCALE_CHARSET)" sort
+else                                            # `locale' is installed
+LOCALE_DIR      := $(TMP_BUILD_DIR)/locale
+SORT_PL         := env LOCPATH="$(LOCALE_DIR)" LC_ALL="$(LOCALE_NAME).$(LOCALE_CHARSET)" sort
+endif
+
+%:
+	dh "$@"
+
+override_dh_auto_clean:
+	rm -rf $(TMP_BUILD_DIR)
+
+
+override_dh_auto_build:
+	mkdir      -p $(LOCALE_DIR) $(TMP_BUILD_DIR)
+
+	cp -a $(SOURCE_DIR)/polish.* $(TMP_BUILD_DIR)
+	recode iso-8859-2..utf-8 $(TMP_BUILD_DIR)/polish.*
+
+
+	## common
+	# build Polish locale definition
+	[ -z "$(LOCALE_DIR)" ] || \
+	localedef  -i "$(LOCALE_NAME)" -f "$(LOCALE_CHARSET)"   \
+	               "$(LOCALE_DIR)/$(LOCALE_NAME).$(LOCALE_CHARSET)"
+
+	# check if $(SORT_PL) works correctly
+	echo "a ą c ć e ę l ł n ń o ó s ś z ź ż" | tr ' ' '\n' | $(SORT_PL) -c
+
+	# build mwl file used by ipolish
+	$(SORT_C) -k1,1 -k 2 -t/ < $(TMP_BUILD_DIR)/polish.all > $(TMP_BUILD_DIR)/polish.mwl.tmp
+	icombine -Tutf8 $(TMP_BUILD_DIR)/polish.aff < $(TMP_BUILD_DIR)/polish.mwl.tmp > $(TMP_BUILD_DIR)/polish.mwl
+
+	## ipolish
+	gzip -9fn -c < $(TMP_BUILD_DIR)/polish.mwl > $(TMP_BUILD_DIR)/polish.mwl.gz
+
+	## wpolish
+	# build hash needed for generation of word list
+	buildhash $(TMP_BUILD_DIR)/polish.mwl $(TMP_BUILD_DIR)/polish.aff $(TMP_BUILD_DIR)/polish.hash
+	# build word list
+ifeq (,$(findstring testbuild,$(DEB_BUILD_OPTIONS)))
+	ispell -d $(TMP_BUILD_DIR)/polish -e < $(TMP_BUILD_DIR)/polish.mwl | \
+	        tr '\040' '\012' > $(TMP_BUILD_DIR)/polish.words.unsorted
+	$(SORT_PL) -u  < $(TMP_BUILD_DIR)/polish.words.unsorted > $(TMP_BUILD_DIR)/polish.words
+else
+	touch $(TMP_BUILD_DIR)/polish.words
+	echo "Test build.... Press any key..."
+	read THROWAWAY
+endif
+
+override_dh_auto_install:
+	## ipolish
+	dh_installdocs -p$(idict-package) $(SOURCE_DIR)/README
+
+	install -m 644 $(TMP_BUILD_DIR)/polish.aff     debian/$(idict-package)/usr/lib/ispell/
+	install -m 644 $(TMP_BUILD_DIR)/polish.mwl.gz  debian/$(idict-package)/usr/share/ispell/
+
+	installdeb-ispell -p$(idict-package)
+
+	## wpolish
+	install -m 644 $(TMP_BUILD_DIR)/polish.words    debian/$(words-package)/usr/share/dict/polish
+	installdeb-wordlist -p$(words-package)
+
+.DEFAULT_GOAL := binary

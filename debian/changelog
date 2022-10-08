@@ -1,0 +1,775 @@
+ipolish (20210105-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch default encoding to UTF-8, so that 'ispell -d polish file'
+    expects 'file' to be in UTF-8, while 'ispell -d polish -Tlatin2 file'
+    can be used to check files encoded in ISO-8859-2:
+    + add 16-UTF-8-affix.patch that sets defstringtype to "utf8" and
+      provides "latin2" as altstringtype;
+    + update debian/rules to recode polish.aff and polish.all files to UTF-8;
+    + recode ipolish.info-ispell file as well, and set value of Coding-System
+      to UTF-8;
+    + bump dependency on ispell to ispell >=  3.4.02.
+  * Provide simple autopkgtests for both binary packages.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 24 Jan 2021 23:08:28 +0100
+
+ipolish (20201103-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Bump debhelper's compat version to 13.
+  * Standard-Version: 4.5.1.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 20 Dec 2020 00:31:17 +0100
+
+ipolish (20190812-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Build with debhelper v12.
+  * debian/control:
+    + remove `Replaces:' on ancient version of manpages-pl;
+    + Standards-Version: 4.4.0.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 18 Aug 2019 12:56:47 +0200
+
+ipolish (20180621-1) unstable; urgency=low
+
+  * New upstream version.
+  * Update patches for the new version: add a few more entries into
+    12-Remove-illegal-words.patch, and 14-Incorrectly-encoded-words.patch;
+    add 'ş' and 'č' in 15-Loanword-chars.patch.
+  * Stop building myspell-pl binary package, as it should be provided by
+    libreoffice-dictionaries as a transational package for hunspell-pl,
+    (see #898749).
+  * Convert dictionaries common info file for wpolish to UTF-8
+    (closes: #901391), and use the language name in Polish (i.e. 'polski')
+    in the info files for both ipolish and wpolish.
+  * Bump debhelper's compat version to 11.
+  * Update debian/copyright based on the changes in upstream README file.
+  * debian/control:
+    + use https in upstream homepage URL;
+    + switch VCS fields to salsa;
+    + Standards-Version: 4.1.4.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 24 Jun 2018 13:52:04 +0200
+
+ipolish (20170707-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Refresh patches for the new version:
+    + add a few more new words into 14-Incorrectly-encoded-words.patch;
+    + join 11-Foreign-characters.patch into 15-Loanword-chars.patch
+      and add two new loanword characters: 'í' and 'â'.
+  * Standards-Version: 4.0.0.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 08 Jul 2017 11:57:09 +0200
+
+ipolish (20161007-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Add 14-Incorrectly-encoded-words.patch to remove words containing '?'
+    that might come from incorrect recoding from UTF-8.
+  * Add 15-Loanword-chars.patch with a few new characters used in loanwords.
+  * Switch debhelper's compat version to 10.
+  * Update debian/watch from PTS.
+  * debian/control:
+    + use https for Vcs-Git and switch Vcs-Browser to cgit;
+    + Standards-Version: 3.9.8.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 09 Oct 2016 18:05:51 +0200
+
+ipolish (20160208-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Fix debian/watch to ignore the `-src' suffix.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 13 Feb 2016 13:45:21 +0100
+
+ipolish (20150428-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Update debian/watch from PTS.
+  * Use https for the Vcs-Browser field.
+  * Get rid of debian/sources/old directory.
+  * Switch debian/copyright to DEP-5 format.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 30 Jan 2016 23:06:44 +0100
+
+ipolish (20140830-2) unstable; urgency=medium
+
+  * debian/control:
+    + Use ${ispell:Depends}, ${wordlist:Depends}, and ${hunspell:Depends}
+      instead of hard-coded dependencies on ispell and dictionaries-common.
+      This should fix upgrade failure (closes: #769552). Thanks to Jakub Wilk
+      for the idea.
+    + Add ${perl:Depends} to wpolish dependencies.
+    + Standards-Version: 3.9.6 (no changes).
+  * debian/rules: avoid storing timestamps of compressed files (lintian).
+
+ -- Robert Luberda <robert@debian.org>  Wed, 19 Nov 2014 23:35:00 +0100
+
+ipolish (20140830-1) unstable; urgency=medium
+
+  * New upstream version.
+  * debian/copyright: Mention Apache 2.0 as yet another alternative license.
+  * Standards-Version: 3.9.5 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Sat, 30 Aug 2014 20:15:29 +0200
+
+ipolish (20130519-1) unstable; urgency=low
+
+  * New upstream version.
+  * Standards-Version: 3.9.4 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Sun, 19 May 2013 11:47:36 +0200
+
+ipolish (20120520-1) unstable; urgency=low
+
+  * New upstream version.
+  * Standards-Version: 3.9.3.
+  * Update debian/compat to really use debhelper v9.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 20 May 2012 22:26:43 +0200
+
+ipolish (20120212-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch to debhelper v9.
+  * Standards-Version: 3.9.2 (no changes needed).
+  * Remove .pc/.dpkg-source-unapply file in rules.  This fixes broken
+    behaviour of dpkg-buildpackage (see Bug#649521).
+  * Update VCS fields.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 12 Feb 2012 10:46:50 +0100
+
+ipolish (20110328-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upload to unstable.
+  * Make ipolish package architecture-independent, use ispell-autobuildhash
+    at package install time to generate ispell hash.
+  * ipolish.info-ispell: add Auto-Compat field (this requires recent version of
+    dictionaries-common-dev).
+  * Remove myspell.links, add info-hunspell file.
+  * Really update debhelper compat level to v8.
+
+  * debian/rules:
+    + call installdeb-hunspell;
+    + properly sort munched word list file with `sort -k 1,1 -t/';
+    + remove call to i2m_dict.awk, icombine is sufficient for its task;
+    + install munched word list into /usr/share/ispell;
+    + simplify the file.
+
+  * debian/control:
+    + add VCS fields;
+    + bump (build-)dependencies on dictionaries-common to >= 1.10.6~;
+    + move most build-depends into build-depends-indep;
+    + make myspell-pl provide hunspell-dictionary-pl packages;
+    + myspell-pl: suggest libreoffice instead of transitional openoffice.org.
+
+  * Remove outdated postinst and preinst files.
+  * Move debian/sources/i2m_dict.awk script to old directory.
+  * Update polish(5) man page - word list files are expected to be encoded
+    in UTF-8, update the man page translation and recode it into UTF-8.
+
+ -- Robert Luberda <robert@debian.org>  Tue, 29 Mar 2011 00:16:11 +0200
+
+ipolish (20100612-3) experimental; urgency=low
+
+  * debian/rules:
+    + fix FTBFS with locale-all installed instead of locales (closes: #618784);
+    + switch to dh command and tiny rules format;
+    + add a work-around for autobuilders not obeying the Policy (see #619284).
+      If not all build-dependencies are installed, then postpone building
+      arch-independent stuff until binary(-indep) target is called.
+
+  * 13-UTF8-characters.patch: add declaration of UTF-8 characters to polish.aff
+    to make it possible to check spelling of UTF-8 encoded files using a
+    `ispell -T utf8' command.
+
+  * Add DEP headers to patches and refresh patches using gpg-pq.
+  * debian/control:
+    + remove articles from short descriptions (lintian);
+    + remove Conflicts with ancient version of openoffice.org (lintian).
+
+ -- Robert Luberda <robert@debian.org>  Wed, 23 Mar 2011 08:55:34 +0100
+
+ipolish (20100612-2) experimental; urgency=low
+
+  * Rebuild with ispell 3.3.02.
+  * Build with debhelper v8.
+  * Standards-Version: 3.9.1 (no changes).
+  * Sort dependency fields with wrap-and-sort from ubuntu-dev-tools.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 12 Mar 2011 21:46:13 +0100
+
+ipolish (20100612-1) unstable; urgency=low
+
+  * New upstream version
+  * Recode /usr/share/dict/polish into UTF-8 (closes: #576152).
+  * Switch to the "3.0 (quilt)" format, stop using dbs (closes: #576041).
+  * Add short descriptions for patches (lintian).
+
+ -- Robert Luberda <robert@debian.org>  Sat, 12 Jun 2010 15:43:07 +0200
+
+ipolish (20100311-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards-Version: 3.8.4 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Thu, 11 Mar 2010 16:20:48 +0100
+
+ipolish (20090830-1) unstable; urgency=low
+
+  * New upstream release.
+  * Require recent dictionaries-common-dev for build to make the myspell dicts
+    installed into /usr/share/hunspell (closes: #541921).
+  * Update pl_PL.{dic,aff} symlinks.
+  * Standards-Version: 3.8.3.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 30 Aug 2009 13:27:43 +0200
+
+ipolish (20090225-1) unstable; urgency=low
+
+  * New upstream release.
+  * Create pl_PL.{dic,aff} symlinks in myspell-pl (closes: #516474).
+  * copyright: refer to /u/s/common0licenses/(L)GPL-2 (lintian).
+
+ -- Robert Luberda <robert@debian.org>  Thu, 26 Feb 2009 21:15:50 +0100
+
+ipolish (20080727-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 27 Jul 2008 11:00:42 +0200
+
+ipolish (20080609-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fix bashisms in debian/rules (closes: #484393).
+  * Add a debian/README.source.
+  * Standards-Version: 3.8.0.
+
+ -- Robert Luberda <robert@debian.org>  Mon, 09 Jun 2008 07:22:02 +0200
+
+ipolish (20080409-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upstream home page changed, update debian/{watch,control,copyright}.
+  * Install myspell dictionary in pl.{dic,aff} (closes: #468088).
+
+ -- Robert Luberda <robert@debian.org>  Wed, 09 Apr 2008 22:58:01 +0200
+
+ipolish (20080222-1) unstable; urgency=low
+
+  * New upstream version.
+  * Update copyright information.
+  * Build with debhelper v6.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 23 Feb 2008 00:25:26 +0100
+
+ipolish (20071214-1) unstable; urgency=low
+
+  * New upstream version.
+  * Standards-Version: 3.7.3 (no changes).
+  * Move homepage urls to  theirs own fields.
+  * Fix all remaining lintian warnings.
+
+ -- Robert Luberda <robert@debian.org>  Sat, 05 Jan 2008 00:45:41 +0100
+
+ipolish (20071015-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Mon, 15 Oct 2007 22:14:08 +0200
+
+ipolish (20070605-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch build dependancy from libmyspell-dev to hunspell-tools | myspell-tools
+    (closes: #426538).
+
+ -- Robert Luberda <robert@debian.org>  Tue, 05 Jun 2007 19:07:47 +0200
+
+ipolish (20070410-2) unstable; urgency=low
+
+  * Fix FTBFS by altering Build-Depends and Build-Depends-Indep fields.
+
+ -- Robert Luberda <robert@debian.org>  Wed, 11 Apr 2007 20:16:52 +0200
+
+ipolish (20070410-1) unstable; urgency=low
+
+  * New upstream version.
+  * Remove PLD dictionaries from the package, they aren't supported
+    and mostly included by the upstream in main dictionary.
+  * Include polish.hash in the binary package thus dropping support for
+    generating  the hash file by the postinst script:
+    + remove update-ipolish-hash and man pages;
+    + remove debconf templates and translations (closes: #414797);
+    + set Architecture to `any' (instead of `all').
+  * 00_dodatkowe_pld.diff: include some words from the removed PLD
+    dictionaries.
+  * debian/rules: add build-{arch,indep} targets.
+
+ -- Robert Luberda <robert@debian.org>  Wed, 11 Apr 2007 00:45:26 +0200
+
+ipolish (20060618-2) unstable; urgency=low
+
+  * Initial Galician translation of debconf templates (closes: #412676).
+  * Update debian/watch file.
+
+ -- Robert Luberda <robert@debian.org>  Sun,  4 Mar 2007 11:32:20 +0100
+
+ipolish (20060618-1) unstable; urgency=low
+
+  * New upstream version.
+  * Standards-Version: 3.7.2 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Sun, 18 Jun 2006 10:59:46 +0200
+
+ipolish (20060501-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch to debhelper v5.
+  * Standards-Version: 3.7.0 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Mon,  1 May 2006 18:40:55 +0200
+
+ipolish (20060225-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/rules:
+    + switch to dbs.
+    + use the $LOCPATH hack to have words list sorted according
+      to Polish locale rules.
+  * debian/control:
+    + add locales to Build-Depends-Indep.
+    + move debhelper & dbs to Build-Depends as they are used in the clean
+      target.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 26 Feb 2006 13:36:37 +0100
+
+ipolish (20060115-1) unstable; urgency=low
+
+  * New upstream version.
+  * polish.aff: add "ü" to valid word chars for another new foreign words
+    (e.g. müsli) included in this version of ipolish.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 15 Jan 2006 13:28:17 +0100
+
+ipolish (20051023-1) unstable; urgency=low
+
+  * New upstream version.
+  * polish.desc: updated, removed most categories because upstream merged
+    them into the main file.
+  * polish.aff: add "é" to valid word chars, so ispell won't complain on
+    some new foreign words (e.g. exposé) included in this version of ipolish.
+  * Initial Swedish debconf templates translation (closes: #331526).
+
+ -- Robert Luberda <robert@debian.org>  Sun, 23 Oct 2005 22:34:13 +0200
+
+ipolish (20050918-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 18 Sep 2005 17:53:26 +0200
+
+ipolish (20050807-1) unstable; urgency=low
+
+  * New upstream version.
+  * Standards-Version: 3.6.2 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Sun,  7 Aug 2005 22:37:27 +0200
+
+ipolish (20050605-1) unstable; urgency=low
+
+  * New upstream version.
+  * Add Vietnamese translation of debconf templates.
+    Thanks to Clytie Siddall <clytie@riverland.net.au> (closes: #312029).
+
+ -- Robert Luberda <robert@debian.org>  Sun,  5 Jun 2005 13:01:08 +0200
+
+ipolish (20050424-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 24 Apr 2005 22:59:10 +0200
+
+ipolish (20050313-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 13 Mar 2005 16:11:30 +0100
+
+ipolish (20050219-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 20 Feb 2005 11:10:12 +0100
+
+ipolish (20050114-1) unstable; urgency=low
+
+  * New upstream version.
+  * Minor fixes in man pages (lintian).
+
+ -- Robert Luberda <robert@debian.org>  Fri, 14 Jan 2005 18:40:33 +0100
+
+ipolish (20041121-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 21 Nov 2004 13:44:26 +0100
+
+ipolish (20041107-1) unstable; urgency=low
+
+  * New upstream version.
+  * Include Czech translation of debconf templates (closes: #278783).
+    Thanks to Miroslav Kure <kurem@upcase.inf.upol.cz>.
+
+ -- Robert Luberda <robert@debian.org>  Sun,  7 Nov 2004 14:25:45 +0100
+
+ipolish (20040928-1) unstable; urgency=low
+
+  * New upstream version.
+  * polish.desc: Update description of the `fachowe/osoby' dictionary
+    and turn the default flag on (closes: #272375).
+  * dodtakowe.pld/PLDP: remove all the words, which contain `+' or `_'
+    characters.
+
+ -- Robert Luberda <robert@debian.org>  Tue, 28 Sep 2004 20:53:57 +0200
+
+ipolish (20040919-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 19 Sep 2004 20:03:26 +0200
+
+ipolish (20040829-1) unstable; urgency=medium
+
+  * New upstream version.
+  * ipolish.preinst: try to remove /varlib/ispell directory mis-created
+    by 20040806-1.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 29 Aug 2004 23:55:15 +0200
+
+ipolish (20040806-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix typo in ipolish.preinst (closes: #265071).
+
+ -- Steve Langasek <vorlon@debian.org>  Thu, 19 Aug 2004 02:22:23 -0700
+
+ipolish (20040806-1) unstable; urgency=low
+
+  * New upstream version.
+  * ipolish.{preinst,config.in}: create /var/lib/ispell/polish.hash if
+    it's necessary (closes: #258225).
+
+ -- Robert Luberda <robert@debian.org>  Sat,  7 Aug 2004 09:49:45 +0200
+
+ipolish (20040604-1) unstable; urgency=low
+
+  * New upstream version.
+  * Add Japanese translation of debconf templates (closes: #251467).
+    Thanks to Hideki Yamane <henrich@samba.gr.jp>.
+  * Move the update-ipolish-hash man page from section 1 to 8 (lintian).
+  * Add source lintian override file for `cvsignore-file-in-source'.
+  * Include debian/watch file.
+
+ -- Robert Luberda <robert@debian.org>  Sat,  5 Jun 2004 21:53:29 +0200
+
+ipolish (20040516-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 16 May 2004 14:47:38 +0200
+
+ipolish (20040212-1) unstable; urgency=low
+
+  * New upstream version.
+  * Build with dictionaries-common-dev 0.20.1 (closes: #232160, #232177).
+
+ -- Robert Luberda <robert@debian.org>  Thu, 12 Feb 2004 22:21:39 +0100
+
+ipolish (20040126-1) unstable; urgency=low
+
+  * New upstream version.
+  * New binary package: myspell-pl with myspell dictionary converted from
+    the ispell one using tools from libmyspell-dev.
+
+  * Update debian/* files for myspell-pl.
+  * Minor fixes in dodatkowe.pld/{INF,PLD}.
+  * debian/sources/polish.desc: added `fachowe/lacznik'.
+
+ -- Robert Luberda <robert@debian.org>  Thu, 29 Jan 2004 20:21:12 +0100
+
+ipolish (20031119-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Robert Luberda <robert@debian.org>  Wed, 19 Nov 2003 19:01:09 +0100
+
+ipolish (20031014-1) unstable; urgency=low
+
+  * New upstream version.
+  * Previous version (20031007-1) was never uploaded to Debian.
+
+ -- Robert Luberda <robert@debian.org>  Tue, 14 Oct 2003 19:11:56 +0200
+
+ipolish (20031007-1) unstable; urgency=low
+
+  * New upstream version by new upstream author :-)
+     + Switched to the alternative ispell-pl dictionary, which is updated
+       more often than the original dictionary.
+     + This dictionary is now licensed on Creative Commons Public
+       License, updated debian/copyright.
+     + It was downloaded from http://www.kurnik.pl/slownik/
+  * Added homepage URL to the package description.
+  * This version does not include frequency field, so revert changes
+    in update-ipolish-hash from 20021127-1.
+  * debian/ipolish.postinst: create /var/lib/ispell/polish.compat file,
+    so ispell-autobuildhash will rebuild polish.hash using
+    update-ipolish-hash.
+  * debian/sources/polish.desc updated.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 12 Oct 2003 20:53:12 +0200
+
+ipolish (20021127-3) unstable; urgency=low
+
+  * Added Brazilian Portuguese debconf translation (closes: #198360).
+    Thanks to André Luís Lopes  <andrelop@debian.org>.
+  * Recode this changelog to UTF-8.
+  * Standards-Version: 3.6.1.
+
+ -- Robert Luberda <robert@debian.org>  Wed, 10 Sep 2003 19:56:37 +0200
+
+ipolish (20021127-2) unstable; urgency=low
+
+  * Rebuilt with the newest dictionaries-common-dev.
+  * Removed bogus word "egzaminacyjy" (closes: #123327).
+  * Renamed debian/ipolish.tempates.in to debian/ipolish.po-master.templates.
+  * Add French translation of debconf templates.
+    Thanks to Denis Barbier <barbier@linuxfr.org> (closes: #185802).
+  * Add German translation of debconf templates from DDTP.
+  * ipolish.postinst: source debconf's confmodule at the top of the file,
+    so update-ipolish-hash will be run only once...
+  * ipolish.info-ispell: Remove pspell-ispell line
+  * Standards-Version: 3.5.10 (no changes).
+
+ -- Robert Luberda <robert@debian.org>  Thu,  5 Jun 2003 20:18:18 +0200
+
+ipolish (20021127-1) unstable; urgency=low
+
+  * New upstream version.
+  * New maintainer (closes: #169757).
+  * Install upstream changelog file.
+  * update-ipolish-hash: support frequency field added by upstream.
+
+  * dodatkowe.pld/*:
+    + only INF and PLD files are used to generate Polish worldist.
+    + fix typo in word `referencjonowalny' (closes: #128991).
+    + other minor changes.
+  * polish.desc:
+    + added `polish.sup' and `fachowe/lrzymskie'.
+    + removed non-existent `fachowe/fizyka.ciala.stalego'.
+
+  * Moved debian manpages and programs to new debian/sources directory.
+  * Minor fixes in manpages.
+  * Added Polish translation of polish.5 (taken from manpages-pl package).
+  * Convert debconf templates to po-debconf.
+  * Added Polish translation of templates.
+
+  * debian/rules: use debhelper v4.
+  * debian/changelog: readded entries for 20011004-1 and 20011004-2, that got
+    missed in NMUs.
+  * debian/control: update description.
+  * debian/copyright: updated.
+  * Standards-Version: 3.5.8.
+  * Closing NMU fixed bugs: closes: #145865, #167183.
+
+ -- Robert Luberda <robert@debian.org>  Sun, 16 Feb 2003 13:43:05 +0100
+
+ipolish (20011004-2.5) unstable; urgency=low
+
+  * Polish ispell dict is really a 'Architecture: all' package because
+    of its ispell hash building in package postinst. Modified control
+    and rules files (closes: #167183)
+  * Fixed some typos in control file (closes: #145865)
+  * Since now we only build binary-indep packages, changed Build-Depends
+    to Build-Depends-Indep.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 27 Nov 2002 13:04:45 +0100
+
+ipolish (20011004-2.4) unstable; urgency=low
+
+  * Just a rebuild to make sure at least dictionaries-common-dev 0.8.4
+    is used, since there was a minor change in the debconf config
+    files. Piotr, no need to change anything in your sources. This fix
+    will propagate the next time you build the package if you have installed
+    at least that version of dictionaries-common-dev.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 28 Oct 2002 13:27:59 +0100
+
+ipolish (20011004-2.3) unstable; urgency=low
+
+  * Non-Maintainer Upload with maintainer agreement
+  * New ispell dictionaries and wordlist packages compliant
+    package, adapted from the experimental one at sourceforge
+    dict-common staging area, forked from 20011004-1 Debian
+    official package. This release merges both branches.
+    Last changes:
+    - Removed all notes about the experimental character of
+      this package.
+    - Last minute policy change: changed dependency in
+      dictionaries-common from 'Pre-Depends' to a simple 'Depends'
+    - Reverted maintainer name to its official maintainer,
+      Piotr Roszatycki <dexter@debian.org>
+    - Removed my old debian/done directory with the stuff previous
+      to the last policy reimplementation.
+    - Modified debian/polish.5 to change references to alternatives
+      system to references to the new system.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 14 Oct 2002 11:19:29 +0200
+
+ipolish (20011004-2.2) unstable; urgency=low
+
+  * Added a Pspell-Ispell field to ipolish.info-ispell file with contents
+    'pl iso8859-2'. Since we use installdeb-ispell this will autogenerate
+    the appropiate pspell-ispell pwli files.
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Tue, 11 Jun 2002 18:27:04 +0200
+
+ipolish (20011004-2.1) unstable; urgency=low
+
+  * Simply bumping version number because of a new official release.
+    The bug it fixes (141261) is not an issue for this experimental
+    package, since we use debhelper, so there was no need to change
+    anything here.
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Thu, 11 Apr 2002 12:52:08 +0200
+
+ipolish (20011004-2) unstable; urgency=medium
+
+  * Removed debhelper from packages file, closes: #141261
+
+ -- Piotr Roszatycki <dexter@debian.org>  Wed, 10 Apr 2002 17:05:42 +0200
+
+ipolish (20011004-1.1) unstable; urgency=low
+
+  * New upstream release. Merged from official package .orig.tar.gz. I hope
+    this gives no problems.
+  * Added newlines to some of my files under the debian dir. That removes
+    some warnings during the building of the package.
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Fri,  5 Apr 2002 18:06:44 +0200
+
+ipolish (20011004-1) unstable; urgency=low
+
+  * New upstream release
+  * Changed architecture, closes: #76374
+
+ -- Piotr Roszatycki <dexter@debian.org>  Wed, 13 Mar 2002 10:17:57 +0100
+
+ipolish (1.0.20000401-1.3) unstable; urgency=low
+
+  * Rebuilding against ispell 3.1.20-30. Will now use MAXSTRINGCHARS=128
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Fri, 15 Feb 2002 15:17:18 +0100
+
+ipolish (1.0.20000401-1.2) unstable; urgency=low
+
+  * Reverted packages names from idict* words* to i* w*
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Thu, 29 Nov 2001 18:12:55 +0100
+
+ipolish (1.0.20000401-1.1) unstable; urgency=low
+
+  * Experimental version according to the dictionaries and
+    wordlists policy proposal
+  * Testing how easy would be to debhelperize this package led to a
+    completely debhelperized package
+  * Debconfized message appearing when rebuilding hash
+  * debian/idict-polish.postinst: cleaned echo calls. We now use debconf
+  * debian/idict-polish.postrm: Added removal of
+    /var/lib/ispell/polish.list on purge
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Thu, 25 Oct 2001 14:50:20 +0200
+
+ipolish (1.0.20000401-1) unstable; urgency=low
+
+  * New upstream release
+  * Some minor modifications in debian/ source directory
+  * Additional technical dictionaries from PLD Linux distro
+
+ -- Piotr Roszatycki <dexter@debian.org>  Tue, 30 May 2000 13:02:20 +0200
+
+ipolish (1.0.990914-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Piotr Roszatycki <dexter@debian.org>  Fri,  1 Oct 1999 16:14:10 +0200
+
+ipolish (1.0.990820-3) unstable; urgency=low
+
+  * Fixes for /usr/doc handling
+
+ -- Piotr Roszatycki <dexter@debian.org>  Tue, 14 Sep 1999 14:32:01 +0200
+
+ipolish (1.0.990820-2) unstable; urgency=low
+
+  * Symlink in /usr/doc for backward compatibility
+  * Fixed grave bug in update-ispell-hash - "Can't open file"
+    if file didn't exist (closes: #44866)
+
+ -- Piotr Roszatycki <dexter@debian.org>  Mon, 13 Sep 1999 18:03:12 +0200
+
+ipolish (1.0.990820-1) unstable; urgency=low
+
+  * Wroten update-ispell-hash(1)
+  * update-ispell-hash 0.3
+  * *.info filename ext. changed to *.desc
+  * /usr/lib/ispell/dict migrated to /usr/share/ispell
+  * Fixed Description for wpolish
+  * Depends: ${perl:Depends} | perl for slink compatibility
+  * Standards-Version: 3.0.1
+  * New upstream release
+
+ -- Piotr Roszatycki <dexter@debian.org>  Mon, 23 Aug 1999 17:31:32 +0200
+
+ipolish (1.0.990624-1) unstable; urgency=low
+
+  * More secure update-ispell-hash (against possible symlink atack)
+  * Temporary files moved to $SRC/tmp directory
+  * polish.aff moved to $SRC/debian directory
+  * Standards-Version: 3.0.0.0
+  * New upstream release
+
+ -- Piotr Roszatycki <dexter@debian.org>  Fri, 23 Jul 1999 23:23:45 +0200
+
+ipolish (1.0.990527-2) unstable; urgency=low
+
+  * Included update-ipolish-hash tool
+  * Source in /usr/lib/ispell/dict/ipolish
+  * Fixed copyright info (LGPL)
+  * Included readme file
+  * yada 0.6
+
+ -- Piotr Roszatycki <dexter@debian.org>  Sat, 10 Jul 1999 14:32:33 +0200
+
+ipolish (1.0.990527-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Piotr Roszatycki <dexter@debian.org>  Tue,  1 Jun 1999 16:13:34 +0200
+
+ipolish (1.0.990319-2) unstable; urgency=low
+
+  * yada technology
+
+ -- Piotr Roszatycki <dexter@debian.org>  Fri, 28 May 1999 23:13:04 +0200
+
+ipolish (1.0.990319-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Piotr Roszatycki <dexter@debian.org>  Sat, 10 Apr 1999 23:00:17 +0200

@@ -1,0 +1,31 @@
+Test-Command: ./debian/tests/ipolish-test correct.txt
+Features: test-name=ipolish_correct_words_default
+Depends: ipolish
+
+Test-Command: ./debian/tests/ipolish-test correct.txt -- -Tutf8
+Features: test-name=ipolish_correct_words_explicit_utf8
+Depends: ipolish
+
+Test-Command: ./debian/tests/ipolish-test correct.txt --recode -- -Tlatin2
+Features: test-name=ipolish_correct_words_latin2
+Depends: ipolish, recode
+
+Test-Command: ./debian/tests/ipolish-test incorrect.txt --misspelled
+Features: test-name=ipolish_misspelled_words_default
+Depends: ipolish
+
+Test-Command: ./debian/tests/ipolish-test incorrect.txt --misspelled -- -Tutf8
+Features: test-name=ipolish_misspelled_words_explicit_utf8
+Depends: ipolish
+
+Test-Command: ./debian/tests/ipolish-test incorrect.txt --misspelled --recode -- -Tlatin2
+Features: test-name=ipolish_misspelled_words_latin2
+Depends: ipolish, recode
+
+Test-Command: ./debian/tests/wpolish-test correct.txt
+Features: test-name=wpolish_correct_words
+Depends: wpolish, locales
+
+Test-Command: ./debian/tests/wpolish-test incorrect.txt --misspelled
+Features: test-name=wpolish_misspelled_words
+Depends: wpolish, locales

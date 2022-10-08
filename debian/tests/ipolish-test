@@ -1,0 +1,28 @@
+#!/bin/sh
+# vim:ts=2:et:sw=2:sts=2
+#
+# Simple tests for ipolish source package.
+#
+# (C) 2021 Robert Luberda <robert@debian.org>
+#
+
+set -e
+
+. $(readlink -e "$(dirname $0)/common.sh")
+
+cp "$datadir/$datafile" "$tmpdir"
+cd "$tmpdir"
+
+[ $recode -eq 0 ] || recode utf-8..iso-8859-2 "$datafile"
+ispell -d polish "$@" -l < "$datafile" > output.txt
+[ $recode -eq 0 ] || recode iso-8859-2..utf-8 output.txt
+
+if [ "$misspelled" -eq 1 ] ; then
+  diff -u "$datadir/$datafile" output.txt || \
+    die "Isell started to recognize new words"
+elif [ -s output.txt ]; then
+  cat output.txt
+  die "Ispell no longer recognizes the above words"
+fi
+
+exit 0

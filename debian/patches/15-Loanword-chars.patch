@@ -1,0 +1,71 @@
+From: Robert Luberda <robert@debian.org>
+Date: Sun, 9 Oct 2016 11:21:21 +0200
+Subject: Loanword chars
+
+Add a few new characters used in loanwords
+---
+ polish.aff | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+diff --git a/polish.aff b/polish.aff
+index a4874e9..6bb8dbc 100644
+--- a/polish.aff
++++ b/polish.aff
+@@ -23,6 +23,21 @@ stringchar 
+ stringchar ó Ó
+ stringchar ê Ê
+ 
++# u¿ywane w s³owach zapo¿yczonych
++stringchar ¹ © # ©koda
++stringchar º ª # Ceauºescu
++stringchar è È # æevapèiæi
++stringchar á Á # Sárospatak
++stringchar â Â # mâché
++stringchar ä Ä # Kärcher
++stringchar ç Ç # Curaçao
++stringchar é É # écru lub exposé
++stringchar ë Ë # citroën
++stringchar í Í # Reykjavík
++stringchar ô Ô # drôlerie
++stringchar ö Ö # malström
++stringchar ú Ú # kahlúa
++stringchar ü Ü # müsli
+ 
+ #
+ # UTF-8
+@@ -49,6 +64,35 @@ altstringchar \xC5\xB9 
+ altstringchar \xC5\xBC ¿
+ altstringchar \xC5\xBB ¯
+ 
++# zapo¿yczone
++altstringchar \xC5\xA1 ¹ # ©koda
++altstringchar \xC5\xA0 ©
++altstringchar \xC5\x9F º # Ceauºescu
++altstringchar \xC5\x9E ª
++altstringchar \xC4\x8D è # æevapèiæi
++altstringchar \xC4\x8C È
++altstringchar \xC3\xA1 á # Sárospatak
++altstringchar \xC3\x81 Á
++altstringchar \xC3\xA2 â # mâché
++altstringchar \xC3\x82 Â
++altstringchar \xC3\xA4 ä # Kärcher
++altstringchar \xC3\x84 Ä
++altstringchar \xC3\xA7 ç # Curaçao
++altstringchar \xC3\x87 Ç
++altstringchar \xC3\xA9 é # écru lub exposé
++altstringchar \xC3\x89 É
++altstringchar \xC3\xAB ë # citroën
++altstringchar \xC3\x8B Ë
++altstringchar \xC3\xAD í # Reykjavík
++altstringchar \xC3\x8D Í
++altstringchar \xC3\xB4 ô # drôlerie
++altstringchar \xC3\x94 Ô
++altstringchar \xC3\xB6 ö # malström
++altstringchar \xC3\x96 Ö
++altstringchar \xC3\xBA ú # kahlúa
++altstringchar \xC3\x9A Ú
++altstringchar \xC3\xBC ü # müsli
++altstringchar \xC3\x9C Ü
+ 
+ prefixes
+ 

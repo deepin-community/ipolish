@@ -1,0 +1,242 @@
+From: Piotr Roszatycki <dexter@debian.org>
+Date: Wed, 10 Apr 2002 17:05:42 +0200
+Subject: Additional PLD
+
+Include some words from PLD dictionaries.
+---
+ polish.all | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/polish.all b/polish.all
+index 2347e64..23d0442 100644
+--- a/polish.all
++++ b/polish.all
+@@ -976,6 +976,7 @@ Alonso
+ Alosza/AMNn
+ Alpejczyk/NOTqs
+ Alpejka/MNm
++Alpha/Nn
+ Alphonse
+ Alphonsie
+ Alpinian/NOToqs
+@@ -10970,6 +10971,7 @@ El
+ El¿unin
+ El¿uniny/XYx
+ Em
++Emacs/OSTs
+ Emanuel/NOTos
+ Emanuela/AMNn
+ Emanuelin
+@@ -76274,6 +76276,7 @@ czterna
+ czteroaktowy/XYbx
+ czteroaktówka/MNm
+ czteroatomowy/XYbx
++czterobajtowy/XYbx
+ czterobarwny/XYbxy
+ czterobiegowy/XYbx
+ czteroboczny/XYbx
+@@ -76293,6 +76296,7 @@ czterodzia
+ czterodzielno¶æ/MN
+ czterodzielny/XYbx
+ czterod¼wiêk/NQTs
++czteroelementowy/XYbx
+ czteroetylek/RSZz
+ czteroetyloo³owiem
+ czteroetyloo³owiowi
+@@ -78227,6 +78231,7 @@ dekoncentracja/AMNn
+ dekoncentracyjny/XYbx
+ dekoncentrowaæ/BEGHJej
+ dekoncentruj±c
++dekonfigurowaæ/BHJj
+ dekoniunktura/MNn
+ dekoniunkturalny/XYbx
+ dekonspiracja/AMNn
+@@ -86709,6 +86714,7 @@ dystrybucjonistka/MNm
+ dystrybucjonizm/NQTs
+ dystrybucyjno
+ dystrybucyjny/XYbxy
++dystrybuowalny/Xbx
+ dystrybuowaæ/BEGHJej
+ dystrybutor/NOToqs
+ dystrybutor/NOTs
+@@ -88397,6 +88403,7 @@ d
+ düsseldorfski/c
+ düsseldorfsko¶æ/MN
+ e
++e-mail
+ eBay/O
+ eCard/Q
+ eDonkey
+@@ -101419,6 +101426,7 @@ gremialny/XYbxy
+ gremia³/NQTs
+ gremio
+ gremium/V
++gremlin
+ grena/MNn
+ grenadier/NOTqs
+ grenadier/NOTs
+@@ -110641,6 +110649,7 @@ iteracja/AMNn
+ iteracyjny/XYbx
+ iterativum/V
+ iteratiwum/V
++iterator/OQSTs
+ iteratywno¶æ/MN
+ iteratywny/XYbx
+ iterb/NQTs
+@@ -132621,6 +132630,7 @@ lnisko/UV
+ lnowate/a
+ lnowaty/XYbx
+ lnowy/XYbx
++loader/OSTs
+ lob/NQTs
+ loba
+ lobambijczyk/NOTqs
+@@ -223707,6 +223717,8 @@ odkomenderowawszy
+ odkomenderowaæ/BEHJej
+ odkomenderowuj±c
+ odkomenderowywaæ/BEGHJei
++odkomentowany/Xx
++odkomentowaæ/BHJj
+ odkomunizowawszy
+ odkomunizowaæ/BEHJej
+ odkomunizowuj±c
+@@ -245453,6 +245465,7 @@ poimprezowa
+ poimprezowy/XYbx
+ poimprowizowawszy
+ poimprowizowaæ/BEHJej
++poindeksowany/XYbxy
+ poinformowany/XYbx
+ poinformowawszy
+ poinformowaæ/BEHJej
+@@ -255269,6 +255282,7 @@ praforma/MNn
+ pragaz/NQTs
+ pragermañski/XYbx
+ pragermañski/c
++pragma/MNn
+ pragmalingwista/MNTq
+ pragmalingwistka/MNm
+ pragmalingwistyczny/XYbx
+@@ -272350,6 +272364,8 @@ referencja/AMNn
+ referencjalny/XYbxy
+ referencje/Wf
+ referencyjno¶æ/MN
++referencjonowalny/XYbx
++referencjowany/XYx
+ referencyjny/XYbx
+ referendalny/XYbx
+ referendaria/ANnp
+@@ -272632,6 +272648,7 @@ reimportowy/XYbx
+ reimprimatur
+ reinfekcja/AMNn
+ reinfekcyjny/XYbx
++reinicjowaæ/BHJj
+ reinkarnacja/AMNn
+ reinkarnacjonistyczny/XYbx
+ reinkarnacjonizm/NQTs
+@@ -272732,6 +272749,7 @@ rekabitami
+ rekabitom
+ rekabity
+ rekalescencja/AMNn
++rekalibracja/AMN
+ rekamiera/MNn
+ rekapitalizacja/AMNn
+ rekapitalizowaæ/BEGHJej
+@@ -272818,6 +272836,9 @@ rekompensacyjny/XYbx
+ rekompensata/MNn
+ rekompensowaæ/BEGHJej
+ rekompensuj±c
++rekompilacja/AMN
++rekompilowanie/UV
++rekompilowaæ/BHJj
+ rekompresowawszy
+ rekompresowaæ/BEGHJej
+ rekompresuj±c
+@@ -295287,6 +295308,7 @@ subretka/MNm
+ subrogacja/AMNn
+ subsaharyjski/XYbxy
+ subsecivae
++subsekwencyjny/XYx
+ subsekwentny/XYbx
+ subsidium
+ subskrybencki/XYbx
+@@ -312069,6 +312091,7 @@ unikowcze
+ unikowiec/PSZtz
+ unikowo¶æ/MN
+ unikowy/XYbx
++uniksowiec/KPZt
+ uniksowy/XYbx
+ unilam/NQTs
+ unilateralno¶æ/MN
+@@ -318826,6 +318849,7 @@ wielok
+ wielolatka/MNm
+ wieloletni/Xbx
+ wielolicowy/XYbx
++wieloliniowy/XYbx
+ wielolistny/XYbx
+ wieloliterowy/XYbx
+ wielolitra¿owy/XYbx
+@@ -319138,6 +319162,7 @@ wieloznaczniej
+ wieloznacznik/NOTs
+ wieloznaczno¶æ/MN
+ wieloznaczny/XYbxy
++wieloznakowy/XYbxy
+ wielozwojny/XYbx
+ wielozwrotkowy/XYbx
+ wielo³amowy/XYbx
+@@ -326321,6 +326346,7 @@ wykolejnica/AMNn
+ wykolejony/XYbx
+ wykombinowawszy
+ wykombinowaæ/BEHJej
++wykomentowany/Xx
+ wykomentowawszy
+ wykomentowaæ/BEHJej
+ wykomentowuj±c
+@@ -332465,6 +332491,7 @@ zaakredytowa
+ zaalarmowawszy
+ zaalarmowaæ/BEHJej
+ zaalkoholizowany/XYbx
++zaalokowany/XYbxy
+ zaalokowawszy
+ zaalokowaæ/BEHJej
+ zaalpejski/XYbxy
+@@ -340687,6 +340714,7 @@ zda
+ zdañko/UV
+ zdeaktualizowawszy
+ zdeaktualizowaæ/BEHJej
++zdealokowany/XYx
+ zdeb/NOTsu
+ zdebia
+ zdebiem
+@@ -341179,6 +341207,8 @@ zdunowy/XYbx
+ zdunówna/MNm
+ zduplikowawszy
+ zduplikowaæ/BEHJej
++zduplikowanie/UV
++zduplikowany/XYx
+ zdurniawszy
+ zdurnia³y/XYbx
+ zdurnieæ/BHIej
+@@ -343571,6 +343601,7 @@ zlimitowawszy
+ zlimitowaæ/BEHJej
+ zlinczowawszy
+ zlinczowaæ/BEHJej
++zlinkowany/XY
+ zlinkowawszy
+ zlinkowaæ/BEHJej
+ zliofilizowawszy
+@@ -344003,6 +344034,7 @@ zmiennomiarowy/XYbx
+ zmiennoogniskowy/XYbx
+ zmiennooporowy/XYbx
+ zmiennopolowy/XYbx
++zmiennopozycyjno¶æ/MN
+ zmiennopozycyjny/XYbx
+ zmiennoprzecinkowy/XYbx
+ zmiennopr±dowy/XYbx
+@@ -345156,6 +345188,7 @@ zrekombinowawszy
+ zrekombinowaæ/BEHJej
+ zrekompensowawszy
+ zrekompensowaæ/BEHJej
++zrekompilowaæ/BHJj
+ zrekonstruowawszy
+ zrekonstruowaæ/BEHJej
+ zrekontrowawszy

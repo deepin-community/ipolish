@@ -1,0 +1,36 @@
+#!/bin/sh
+# vim:ts=2:et:sw=2:sts=2
+#
+# Simple tests for ipolish source package.
+#
+# (C) 2021 Robert Luberda <robert@debian.org>
+#
+
+set -e
+
+. $(readlink -e "$(dirname $0)/common.sh")
+
+all_words_file=/usr/share/dict/polish
+sorted_file="$tmpdir/$(basename $datafile)"
+
+cd "$tmpdir"
+
+if [ -d /usr/share/i18n/charmaps ]; then
+  mkdir -p locales
+  localedef  -i "pl_PL" -f "UTF-8" locales/pl_PL.UTF-8
+  export LOCPATH="$tmpdir/locales"
+fi
+
+LC_ALL=pl_PL.UTF-8 sort -u < "$datadir/$datafile" > "$sorted_file"
+
+LC_ALL=pl_PL.UTF-8 comm -23 "$sorted_file" "$all_words_file" > output.txt
+
+if [ "$misspelled" -eq 1 ] ; then
+  LC_ALL=pl_PL.UTF-8 diff -u "$sorted_file" output.txt || \
+    die "polish dict file contains the above misspelled words"
+elif [ -s output.txt ]; then
+  cat output.txt
+  die "polish dict does not contain the above correct words"
+fi
+
+exit 0

@@ -1,0 +1,47 @@
+.TH POLISH 5 "March 29th, 2011" "Debian Project" "Debian"
+.SH NAME
+polish \- a list of Polish words
+.SH DESCRIPTION
+.B /usr/share/dict/polish
+is an ASCII file which contains an alphabetic list of words, one per
+line.
+.SH FILES
+.I /etc/dictionaries\-common/words
+is a symbolic link to a
+.I /usr/share/dict/<language>
+file.
+.I /usr/share/dict/words
+is a symbolic link to
+.IR /etc/dictionaries\-common/words ,
+and is the name by which other software should refer to the
+system word list.
+See
+.BR select\-default\-wordlist (8)
+for more information.
+.PP
+The directory
+.I /usr/share/dict
+can contain word lists for many languages, with name of the language
+in English, e.g.,
+.I /usr/share/dict/french
+and
+.I /usr/share/dict/danish
+contain respectively lists of French and Danish words if they exist.
+Such lists should be coded using the UTF-8 character set encoding.
+.SH "SEE ALSO"
+.BR ispell (1),
+.BR select\-default\-wordlist (8),
+and the
+.I Filesystem Hierarchy
+.IR Standard .
+.SH HISTORY
+The words lists are not specific, and may be generated from any number
+of sources.
+.PP
+The system word list used to be
+.IR /usr/\&dict/words .
+For compatibility, software should check that location if
+.I /usr/share/dict/words
+does not exist.
+.SH AUTHOR
+Word lists are collected and maintained by various authors.
